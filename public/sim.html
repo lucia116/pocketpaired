@@ -1,0 +1,2353 @@
+﻿<!-- 
+Pocket Paired(TM)
+Copyright 2013
+Brian Randy Funk
+All Rights Reserved
+
+All graphics, code, algorithms, game mechanices, trademarks, servicemarks, and copyrights are owned by Brian Randy Funk.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Pocket Paired™</title>
+    <meta name="description" content="Pocket Paired™ - Object Oriented Web Development for Gaming Simulation" />
+    <meta name="keywords" content="Pocket Paired, pocket, pock, pair, pairs, paired, poker, perfect, rocket, gambling, gaming, blackjack, baccarat, pai gow, paigow, let it ride, caribbean stud, texas holdem, craps, roulette, 21, war" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <style type="text/css">
+        .center
+        {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            align: center;
+        }
+        .middle
+        {
+            vertical-align: middle;
+        }
+        .right
+        {
+            text-align: right;
+            align: right;
+        }
+        .left
+        {
+            text-align: left;
+            align: left;
+        }
+        
+        .bold
+        {
+            font-weight: bold;
+        }
+        .italic
+        {
+            font-style: italic;
+        }
+        .underline
+        {
+            text-decoration: underline;
+        }
+        .plain
+        {
+            font-weight: normal;
+            font-style: normal;
+            text-decoration: none;
+        }
+        
+        .small
+        {
+            font-size: 11px;
+        }
+        .medium
+        {
+            font-size: 12px;
+        }
+        .large
+        {
+            font-size: 14px;
+        }
+        
+        .select
+        {
+            -webkit-touch-callout: text;
+            -webkit-user-select: text;
+            -khtml-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+    </style>
+    <style type="text/css">
+        @media print
+        {
+            *
+            {
+                visibility: hidden !important;
+            }
+        
+            .print table tr td span
+            {
+                background: #ffffff !important;
+                visibility: visible !important;
+            }
+            .print table tr td
+            {
+                background: #ffffff !important;
+                visibility: visible !important;
+                border: 2px solid #000000 !important;
+            }
+            .print table tr
+            {
+                background: #ffffff !important;
+                visibility: visible !important;
+                border: 2px solid #000000 !important;
+            }
+            .print table
+            {
+                background: #ffffff !important;
+                visibility: visible !important;
+                border: 2px solid #000000 !important;
+            }
+        }
+    </style>
+    <style type="text/css">
+        body, div, form, img, span, p, table, tr, td, a
+        {
+            margin: 0px; /*
+            border: 0px;
+            padding: 0px;
+            border-spacing: 0;
+            border-collapse: collapse;
+            */
+        }
+        body, div, input, form, img, span, p, table, tr, td, a
+        {
+ 
+        }
+    </style>
+    <style type="text/css">
+        table, td, tr
+        {
+            font-family: Arial;
+            font-size: 13px;
+            color: #310000;
+        }
+        
+        .table
+        {
+            padding: 3px;
+            border-collapse: collapse;
+            border: 3px outset #310000;
+            background: rgba(255,255,255,0.9);
+            padding: 6px;
+        }
+        
+        .table td
+        {
+            padding: 1px;
+            border: 1px solid #310000;
+            border-collapse: collapse;
+        }
+    </style>
+    <style type="text/css">
+        .footerText
+        {
+            -webkit-transition: color 4s ease;
+            -moz-transition: color 4s ease;
+            -ms-transition: color 4s ease;
+            -o-transition: color 4s ease;
+            transition: color 4s ease;
+            
+            color: #135c16;
+            font-family: Arial;
+            font-size: 12px;
+            cursor: pointer;
+            text-decoration:none;
+        }        
+        .footerText:hover
+        {
+            color: #9feca2;
+        }
+    </style>  
+    <style type="text/css">
+        
+        .greenButton
+        {
+            background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #55bd57), color-stop(1, #006308) );
+            background: -moz-linear-gradient( center top, #55bd57 5%, #006308 100% );
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#55bd57', endColorstr='#006308');
+            background-color: #55bd57;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            border: 3px solid #f3c726;
+            display: inline-block;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 4px 4px;
+            text-decoration: none;
+        }
+        .greenButton:hover
+        {
+            background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006308), color-stop(1, #55bd57) );
+            background: -moz-linear-gradient( center top, #006308 5%, #55bd57 100% );
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006308', endColorstr='#55bd57');
+            background-color: #006308;
+        }
+        .greenButton:active
+        {
+            position: relative;
+            top: 1px;
+        }
+        
+        .redButton
+        {
+            background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bd5555), color-stop(1, #610000) );
+            background: -moz-linear-gradient( center top, #bd5555 5%, #610000 100% );
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bd5555', endColorstr='#610000');
+            background-color: #bd5555;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            border: 3px solid #f3c726;
+            display: inline-block;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 4px 4px;
+            text-decoration: none;
+        }
+        .redButton:hover
+        {
+            background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #610000), color-stop(1, #bd5555) );
+            background: -moz-linear-gradient( center top, #610000 5%, #bd5555 100% );
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#610000', endColorstr='#bd5555');
+            background-color: #610000;
+        }
+        .redButton:active
+        {
+            position: relative;
+            top: 1px;
+        }
+        
+        .yellowButton
+        {
+            background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fbeebd), color-stop(1, #f3c726) );
+            background: -moz-linear-gradient( center top, #fbeebd 5%, #f3c726 100% );
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbeebd', endColorstr='#f3c726');
+            background-color: #fbeebd;
+            border: 2px solid #d5a907;
+            display: inline-block;
+            color: #310000;
+            font-family: Arial;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 2px 2px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .yellowButton:hover
+        {
+            background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f3c726), color-stop(1, #fbeebd) );
+            background: -moz-linear-gradient( center top, #f3c726 5%, #fbeebd 100% );
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f3c726', endColorstr='#fbeebd');
+            background-color: #f3c726;
+            text-decoration: underline;
+        }
+        .yellowButton:active
+        {
+        }
+        
+        .helpButton
+        {
+            background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fbeebd), color-stop(1, #f3c726) );
+            background: -moz-linear-gradient( center top, #fbeebd 5%, #f3c726 100% );
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbeebd', endColorstr='#f3c726');
+            background-color: #fbeebd;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            border: 3px solid #ffd535;
+            display: inline-block;
+            color: #310000;
+            font-family: Arial;
+            font-size: 22px;
+            font-weight: bold;
+            padding: 0px 0px 2px;;
+            text-decoration: none;
+            cursor: pointer;
+            width: 24px;
+            height: 22px;
+            text-align: center;
+            vertical-align:middle;
+        }
+        .helpButton:hover
+        {
+            background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f3c726), color-stop(1, #fbeebd) );
+            background: -moz-linear-gradient( center top, #f3c726 5%, #fbeebd 100% );
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f3c726', endColorstr='#fbeebd');
+            background-color: #f3c726;
+        }
+        .helpButton:active
+        {
+            position: relative;
+            top: 1px;
+        }
+    </style>
+</head>
+<script type="text/javascript">
+
+	//*********************************************************************************
+
+    // Format percentage and return with %
+    function formatPercent(num) {
+        return Math.round(num * 100) + "%"
+    }
+
+    // Format currency and return with commas and dollar
+    function formatCurrency(num) {
+        var dec = num.toString().split(".");
+        return "$" + dec[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (dec[1] ? "." + dec[1] : "");
+    }
+
+    // Return current date time in format
+    function datetime() {
+        var now = new Date();
+        //datetime.format("d/M/yyyy h:mm tt");
+        var date = (parseInt(now.getMonth()) + 1) + "/" + now.getDate() + "/" + now.getFullYear();
+        var time = now.toLocaleTimeString();
+        
+        var datetime = date + " " + time;
+
+        return datetime;
+    }
+</script>
+<script type="text/javascript">
+
+    //*********************************************************************************
+
+    // Log the hands
+    var logWinNum, logLoseNum, logPushNum;
+    logWinNum = 0;
+    logLoseNum = 0;
+    logPushNum = 0;
+
+    var logPairNum, logPocketNum, logTripNum, logQuadNum, logPerfectNum, logHighNum;
+    logPairNum = 0;
+    logPocketNum = 0;
+    logTripNum = 0;
+    logQuadNum = 0;
+    logPerfectNum = 0;
+    logHighNum = 0;
+
+    var logQualNum, logTieNum, logDealNum, logMisNum;    
+    logQualNum = 0;
+    logTieNum = 0;
+    logMisNum = 0;
+    logDealNum = 0;
+
+    var logPaceNum, logKaceNum, logDaceNum, logLowNum;
+    logPaceNum = 0;
+    logKaceNum = 0;
+    logDaceNum = 0;
+    logLowNum = 0;
+
+    var logHandsNum;
+    logHandsNum = 0;
+
+    // Log the amounts
+    var logWinAmt, logLoseAmt, logPushAmt;
+    logWinAmt = 0;
+    logLoseAmt = 0;
+    logPushAmt = 0;
+
+    var logPairAmt, logPocketAmt, logTripAmt, logQuadAmt, logPerfectAmt, logHighAmt;
+    logPairAmt = 0;
+    logPocketAmt = 0;
+    logTripAmt = 0;
+    logQuadAmt = 0;
+    logPerfectAmt = 0;
+    logHighAmt = 0;
+
+    var logQualAmt, logTieAmt, logDealAmt, logMisAmt;
+    logQualAmt = 0;
+    logTieAmt = 0;
+    logMisAmt = 0;
+    logDealAmt = 0;
+
+    var logPaceAmt, logKaceAmt, logDaceAmt, logLowAmt
+    logPaceAmt = 0; 
+    logKaceAmt = 0;
+    logDaceAmt = 0;
+    logLowAmt = 0;
+
+    var logHandsAmt;
+    logHandsAmt = 0;
+
+    function updateLog() {
+
+        // Show Numbers
+        document.getElementById("logHandsNum").innerHTML = "&nbsp;" + logHandsNum;
+
+        document.getElementById("logWinNum").innerHTML = "&nbsp;" + logWinNum;
+        document.getElementById("logLoseNum").innerHTML = "&nbsp;" + logLoseNum;
+        document.getElementById("logPushNum").innerHTML = "&nbsp;" + logPushNum;
+
+        document.getElementById("logHighNum").innerHTML = "&nbsp;" + logHighNum;
+        document.getElementById("logPairNum").innerHTML = "&nbsp;" + logPairNum;
+        document.getElementById("logPocketNum").innerHTML = "&nbsp;" + logPocketNum;
+        document.getElementById("logTripNum").innerHTML = "&nbsp;" + logTripNum;
+        document.getElementById("logQuadNum").innerHTML = "&nbsp;" + logQuadNum;
+        //document.getElementById("logPerfectNum").innerHTML = "&nbsp;" + logPerfectNum;
+        document.getElementById("logDealNum").innerHTML = "&nbsp;" + logDealNum;
+
+        //document.getElementById("logQualNum").innerHTML = "&nbsp;" + logQualNum;
+        document.getElementById("logTieNum").innerHTML = "&nbsp;" + logTieNum;
+        //document.getElementById("logMisNum").innerHTML = "&nbsp;" + logMisNum;        
+
+        document.getElementById("logPaceNum").innerHTML = "&nbsp;" + logPaceNum;
+        document.getElementById("logKaceNum").innerHTML = "&nbsp;" + logKaceNum;
+        document.getElementById("logDaceNum").innerHTML = "&nbsp;" + logDaceNum;
+        document.getElementById("logLowNum").innerHTML = "&nbsp;" + logLowNum;
+
+        // Show Num Percents
+        document.getElementById("logHandsNumPerc").innerHTML = "&nbsp;" + formatPercent(logHandsNum / logHandsNum);
+
+        document.getElementById("logWinNumPerc").innerHTML = "&nbsp;" + formatPercent(logWinNum / logHandsNum);
+        document.getElementById("logLoseNumPerc").innerHTML = "&nbsp;" + formatPercent(logLoseNum / logHandsNum);
+        document.getElementById("logPushNumPerc").innerHTML = "&nbsp;" + formatPercent(logPushNum / logHandsNum);
+
+        document.getElementById("logHighNumPerc").innerHTML = "&nbsp;" + formatPercent(logHighNum / logWinNum);
+        document.getElementById("logPairNumPerc").innerHTML = "&nbsp;" + formatPercent(logPairNum / logWinNum);
+        document.getElementById("logPocketNumPerc").innerHTML = "&nbsp;" + formatPercent(logPocketNum / logWinNum);
+        document.getElementById("logTripNumPerc").innerHTML = "&nbsp;" + formatPercent(logTripNum / logWinNum);
+        document.getElementById("logQuadNumPerc").innerHTML = "&nbsp;" + formatPercent(logQuadNum / logWinNum);
+        //document.getElementById("logPerfectNumPerc").innerHTML = "&nbsp;" + formatPercent(logPerfectNum / logWinNum);
+        document.getElementById("logDealNumPerc").innerHTML = "&nbsp;" + formatPercent(logDealNum / logWinNum);
+
+        //document.getElementById("logQualNumPerc").innerHTML = "&nbsp;" + formatPercent(logQualNum / logPushNum);
+        document.getElementById("logTieNumPerc").innerHTML = "&nbsp;" + formatPercent(logTieNum / logPushNum);
+        //document.getElementById("logMisNumPerc").innerHTML = "&nbsp;" + formatPercent(logMisNum / logPushNum);        
+
+        document.getElementById("logPaceNumPerc").innerHTML = "&nbsp;" + formatPercent(logPaceNum / logLoseNum);
+        document.getElementById("logKaceNumPerc").innerHTML = "&nbsp;" + formatPercent(logKaceNum / logLoseNum);
+        document.getElementById("logDaceNumPerc").innerHTML = "&nbsp;" + formatPercent(logDaceNum / logLoseNum);
+        document.getElementById("logLowNumPerc").innerHTML = "&nbsp;" + formatPercent(logLowNum / logLoseNum);
+
+        // Show Amounts
+        document.getElementById("logHandsAmt").innerHTML = "&nbsp;" + formatCurrency(logHandsAmt);
+
+        document.getElementById("logWinAmt").innerHTML = "&nbsp;" + formatCurrency(logWinAmt);
+        document.getElementById("logLoseAmt").innerHTML = "&nbsp;" + formatCurrency(logLoseAmt);
+        document.getElementById("logPushAmt").innerHTML = "&nbsp;" + formatCurrency(logPushAmt);
+
+        document.getElementById("logHighAmt").innerHTML = "&nbsp;" + formatCurrency(logHighAmt);
+        document.getElementById("logPairAmt").innerHTML = "&nbsp;" + formatCurrency(logPairAmt);
+        document.getElementById("logPocketAmt").innerHTML = "&nbsp;" + formatCurrency(logPocketAmt);
+        document.getElementById("logTripAmt").innerHTML = "&nbsp;" + formatCurrency(logTripAmt);
+        document.getElementById("logQuadAmt").innerHTML = "&nbsp;" + formatCurrency(logQuadAmt);
+        //document.getElementById("logPerfectAmt").innerHTML = "&nbsp;" + formatCurrency(logPerfectAmt);
+        document.getElementById("logDealAmt").innerHTML = "&nbsp;" + formatCurrency(logDealAmt);
+
+        //document.getElementById("logQualAmt").innerHTML = "&nbsp;" + formatCurrency(logQualAmt);
+        document.getElementById("logTieAmt").innerHTML = "&nbsp;" + formatCurrency(logTieAmt);
+        //document.getElementById("logMisAmt").innerHTML = "&nbsp;" + formatCurrency(logMisAmt);        
+
+        document.getElementById("logPaceAmt").innerHTML = "&nbsp;" + formatCurrency(logPaceAmt);
+        document.getElementById("logKaceAmt").innerHTML = "&nbsp;" + formatCurrency(logKaceAmt);
+        document.getElementById("logDaceAmt").innerHTML = "&nbsp;" + formatCurrency(logDaceAmt);
+        document.getElementById("logLowAmt").innerHTML = "&nbsp;" + formatCurrency(logLowAmt);
+
+        // Show Amount Percent
+        document.getElementById("logHandsAmtPerc").innerHTML = "&nbsp;" + formatPercent(logHandsAmt / logHandsAmt);
+
+        document.getElementById("logWinAmtPerc").innerHTML = "&nbsp;" + formatPercent(logWinAmt / logHandsAmt);
+        document.getElementById("logLoseAmtPerc").innerHTML = "&nbsp;" + formatPercent(logLoseAmt / logHandsAmt);
+        document.getElementById("logPushAmtPerc").innerHTML = "&nbsp;" + formatPercent(logPushAmt / logHandsAmt);
+
+        document.getElementById("logHighAmtPerc").innerHTML = "&nbsp;" + formatPercent(logHighAmt / logWinAmt);
+        document.getElementById("logPairAmtPerc").innerHTML = "&nbsp;" + formatPercent(logPairAmt / logWinAmt);
+        document.getElementById("logPocketAmtPerc").innerHTML = "&nbsp;" + formatPercent(logPocketAmt / logWinAmt);
+        document.getElementById("logTripAmtPerc").innerHTML = "&nbsp;" + formatPercent(logTripAmt / logWinAmt);
+        document.getElementById("logQuadAmtPerc").innerHTML = "&nbsp;" + formatPercent(logQuadAmt / logWinAmt);
+        //document.getElementById("logPerfectAmtPerc").innerHTML = "&nbsp;" + formatPercent(logPerfectAmt / logWinAmt);
+        document.getElementById("logDealAmtPerc").innerHTML = "&nbsp;" + formatPercent(logDealAmt / logWinAmt);
+
+        //document.getElementById("logQualAmtPerc").innerHTML = "&nbsp;" + formatPercent(0);
+        document.getElementById("logTieAmtPerc").innerHTML = "&nbsp;" + formatPercent(0);
+        //document.getElementById("logMisAmtPerc").innerHTML = "&nbsp;" + formatPercent(0);        
+
+        document.getElementById("logPaceAmtPerc").innerHTML = "&nbsp;" + formatPercent(logPaceAmt / logLoseAmt);
+        document.getElementById("logKaceAmtPerc").innerHTML = "&nbsp;" + formatPercent(logKaceAmt / logLoseAmt);
+        document.getElementById("logDaceAmtPerc").innerHTML = "&nbsp;" + formatPercent(logDaceAmt / logLoseAmt);
+        document.getElementById("logLowAmtPerc").innerHTML = "&nbsp;" + formatPercent(logLowAmt / logLoseAmt);
+    }
+
+    function handHistoryLog(logHTML) {
+    /*
+        var handHistoryLogDiv = document.getElementById("handHistoryLogDiv");
+        var insertBreak = "<br />";
+
+        if ((handHistoryLogDiv.innerHTML.length == 0) && (logHTML == "")) {
+            insertBreak = "";
+        }
+
+        handHistoryLogDiv.innerHTML += logHTML + insertBreak;
+        
+        handHistoryLogDiv.scrollTop = handHistoryLogDiv.scrollHeight;
+    */
+    }
+</script>
+<script type="text/javascript">
+
+    //*********************************************************************************
+
+	var suit = new Array("C", "D", "H", "S");
+	var rank = new Array("2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A");
+
+	//var rank = new Array("2", "2", "2", "2", "2", "2", "2", "2", "2", "J", "A", "A", "A"); // Paired array
+	
+	function Card(rank, suit) {
+
+        this.rank = rank;
+        this.suit = suit;
+        this.name = rank + "" + suit;
+        this.num = cardNum(rank);
+    }
+
+    function cardNum(rank) { 
+		
+		// Convert ranks to numbers
+		if (rank == "A") {
+    		return 14;
+    	}
+    	else if (rank == "K") {
+    		return 13;
+    	}
+    	else if (rank == "Q") {
+    		return 12;
+    	}
+    	else if (rank == "J") {
+    		return 11;
+        }
+        else if (rank == "T") {
+            return 10;
+        }
+    	else {
+    		return parseInt(rank);
+    	}
+    }
+
+    function Shoe() {
+        this.cards = new Array();
+
+        this.make = makeShoe;
+        this.shuffle = shuffleShoe;
+        this.deal = dealShoe;
+        //this.display = displayShoe;
+    }    
+
+    function makeShoe(numDecks) {    
+
+        var numCards = suit.length * rank.length; // Always 52
+
+        this.cards = new Array(numDecks * numCards);
+
+        var d, s, r;
+
+        for (d = 0; d < numDecks; d++) { // For each deck in shoe
+            for (s = 0; s < suit.length; s++) { // For each suit
+                for (r = 0; r < rank.length; r++) { // For each rank
+                    this.cards[(d * numCards) + (s * rank.length) + r] = new Card(rank[r], suit[s]); // 1 card of each rank/suit
+                    //document.getElementById("cardsDiv").innerHTML += " " + this.cards[(d * numDecks) + (s * rank.length) + r].name;
+                }
+                //document.getElementById("cardsDiv").innerHTML += "<br>";
+            }
+        }
+    }
+
+    function shuffleShoe(numShuffle) {
+
+        var s, c, r;
+        var currentCard, randomCard;
+
+        for (s = 0; s < numShuffle; s++) { // For each shuffle
+            for (c = 0; c < this.cards.length; c++) { // For each card
+                r = Math.floor(Math.random() * this.cards.length);  // Random number
+                currentCard = this.cards[c];  // Current card
+                randomCard = this.cards[r]; // Random card
+                this.cards[c] = randomCard; // Replace current card with random card
+                this.cards[r] = currentCard; // Replace random card with current card
+            }
+        }
+    }
+
+    /*
+    function displayShoe() {
+        //document.getElementById("cardsDiv").innerHTML = "";
+        var c;
+        for (c = 0; c < this.cards.length; c++) { // For each card
+            //document.getElementById("cardsDiv").innerHTML += " " + this.cards[c].name;
+        }
+    }
+    */
+
+    function dealShoe() {
+
+        if (this.cards.length > 0) {
+            return this.cards.shift();
+        }
+        else {
+            return null;
+            //window.alert("null");
+        }
+    }
+</script>
+<script type="text/javascript">
+
+	//*********************************************************************************
+
+    function Hand(player) {
+		this.player = player;
+    	this.name = player.name + "";
+		this.wager = 0;
+		this.cards = new Array();
+		this.hit = hitHand;
+		this.show = showHand;
+		this.clear = clearHand;
+		this.back = backHand;
+		this.bet = betHand;
+		this.bonus = 0;
+		this.get = getCard;
+    }
+
+    function getCard(cardNum) {
+        return this.cards[(cardNum - 1)];
+    }    
+
+	function betHand(bet) {
+
+	    if (this.player.bank.amount >= bet) {
+	        //this.player.bank.bet(bet);
+	        //this.player.bank.show();
+
+	        this.wager += bet;
+	        document.getElementById(this.name + "WagerAmount").innerHTML = "" + formatCurrency(this.wager);  // Show wager amount
+	    }
+	    else {
+	        window.alert("not enough bank amount - betHand");
+	    }
+	}
+
+    function hitHand(card) {
+		this.cards.push(card);
+    }
+
+    function showHand(cardNum) {
+	   	
+        var h;
+        var handCard
+
+        if (cardNum == 0) {  // Display all cards
+
+			//document.getElementById(this.name + "HandDiv").innerHTML = "&nbsp;";  // Clear current display
+			
+        	for (h = 0; h < this.cards.length; h++) {
+
+        	    handCard = this.cards[h];
+        	    var cardId = (h + 1);
+
+        	    //document.getElementById(this.name + "Card" + cardId + "Div").innerHTML = "<img src='/images/cards/" + handCard.name + ".png' alt='" + handCard.name + "' />";
+            }
+        }
+        else if (cardNum <= this.cards.length) {   // Display single card
+			
+			handCard = this.cards[(cardNum-1)];
+
+			//document.getElementById(this.name + "Card" + cardNum + "Div").innerHTML = "<img src='/images/cards/" + handCard.name + ".png' alt='" + handCard.name + "' />";
+        }
+    }
+
+    function backHand(cardNum) {
+        //document.getElementById(this.name + "Card" + cardNum + "Div").innerHTML = "<img src='/images/cards/back_" + deckColor + ".png' alt='' />";
+    }
+
+    function clearHand() {
+        this.cards = new Array();
+
+        var h;
+        for (h = 0; h < 4; h++) {
+
+            var cardId = (h + 1);
+            document.getElementById(this.name + "Card" + cardId + "Div").innerHTML = "&nbsp;";
+        }
+	}
+
+	function clearWager(player) {
+		document.getElementById(player.name + "WagerAmount").innerHTML = "&nbsp;";
+    }
+</script>
+<script type="text/javascript">
+		
+	//*********************************************************************************
+
+    function Bank(player, amount) {
+    	this.player = player;
+    	this.name = player.name + "";
+    	this.bet = betBank;
+		this.win = winBank;
+    	this.amount = amount;
+    	this.show = showBank;
+        this.deposit = depositBank;
+    }
+
+    function betBank(bet) {
+
+        if (this.amount >= bet) {
+            this.amount -= bet;
+            this.show();
+        }
+        else {
+            window.alert("not enough bank amount - betBank");
+        }
+    }
+
+    function depositBank(deposit) {
+        this.amount += deposit;
+        this.show();
+    }
+
+	function winBank(win) {
+	    this.amount += win;
+	    this.show();
+    }
+
+    function showBank() {
+		document.getElementById(this.name + "BankAmount").innerHTML = "" + formatCurrency(this.amount);
+    }
+
+</script>
+<script type="text/javascript">
+
+    //*********************************************************************************
+
+    function Player(name) {
+        this.name = name;
+        this.bank = new Bank(this, 5000);
+        this.hand = new Hand(this);
+    }
+
+</script>
+<script type="text/javascript">
+
+    //*********************************************************************************
+
+    // Set global variables
+
+    var ppShoe;
+    ppShoe = new Shoe(); // Create new Shoe upon load
+    ppShoe.make(6); // Shoe with 6 decks - standard shoe size
+    ppShoe.shuffle(3); // Shuffle 3 times
+
+    var ppDealer, ppPlayer;
+
+    ppDealer = new Player("ppDealer");
+    ppPlayer = new Player("ppPlayer");
+
+    var playStatus, playRound;
+    playStatus = false;
+    playRound = 0; // Numbered by number of cards player has
+
+    var deckColor;
+    deckColor = "blue";
+
+    var tableMin, tableMax;
+    tableMin = 5;
+    tableMax = 100;
+
+</script>
+<script type="text/javascript">
+
+    //*********************************************************************************
+
+    function deal(player) {
+
+        if (betValidate(player)) {
+
+            playStatus = true;
+            playRound = 2;
+
+            // Disable unused elements/buttons
+            //document.getElementById("betAmount").disabled = true;
+            //document.getElementById("bet5Chip").disabled = true;
+            //document.getElementById("bet10Chip").disabled = true;
+            //document.getElementById("bet25Chip").disabled = true;
+            //document.getElementById("bet100Chip").disabled = true;
+            //document.getElementById("bet0Button").disabled = true;
+
+            //document.getElementById("ppPlayerBet1Div").style.cursor = "default";
+            //document.getElementById("ppPlayerBet2Div").style.cursor = "default";
+
+            dealButtonDiv = "hidden";
+            rebetButtonDiv = "hidden";
+            resetButtonDiv = "hidden";
+            minbetButtonDiv = "hidden";
+
+            //document.getElementById("endButton").disabled = false;
+
+            // If shoe is less than 2 deck in size then reshuffle - single deck always reshuffles
+            if (ppShoe.cards.length < (52 * 2)) {
+                ppShoe.make(6); // Shoe with 6 decks - standard shoe size
+                ppShoe.shuffle(3); // Shuffle 3 times  
+            }
+            
+            //Create player/deal hands
+            player.hand = new Hand(player);
+            ppDealer.hand = new Hand(ppDealer);
+
+            // Take bet & add wager
+            var betAmount = parseInt(document.getElementById("betAmount").value);
+            player.hand.bet(betAmount * 2); // Place 1 bet for each card
+
+            // Take bonus & add bonus wager
+            var bonusAmount = parseInt(document.getElementById("bonusAmount").value);
+            player.hand.bonus = bonusAmount; // Place bonus amount
+
+            // Log to hand history
+            handHistoryLog("");
+            handHistoryLog("<span class='bold medium'>Hand #" + (logHandsNum + 1) + "</span>");
+            handHistoryLog("" + datetime() + "");
+            handHistoryLog("Player Bet:&nbsp;" + formatCurrency(betAmount) + "");
+            if (bonusAmount > 0) {
+                handHistoryLog("Bonus Bet:&nbsp;" + formatCurrency(bonusAmount) + "");
+            }
+            handHistoryLog("Start Wager:&nbsp;" + formatCurrency((betAmount * 2) + bonusAmount) + "");
+
+            // Deal cards
+            ppShoe.deal(); // Burn very first card
+
+            ppDealer.hand.hit(ppShoe.deal()); // Dealer first card
+            player.hand.hit(ppShoe.deal()); // Player first card
+
+            ppDealer.hand.hit(ppShoe.deal()); // Dealer second card
+            player.hand.hit(ppShoe.deal()); // Player second card
+
+            ppDealer.hand.hit(ppShoe.deal()); // Dealer third card
+
+            // Show cards/bank
+            player.hand.show(1);
+            player.hand.show(2);
+            handHistoryLog("Player Pocket:&nbsp;" + player.hand.get(1).name + "&nbsp;" + player.hand.get(2).name + "");
+
+            ppDealer.hand.back(1); // Dealer cards start flipped
+            ppDealer.hand.back(2);
+            ppDealer.hand.back(3);
+
+            player.bank.show();
+
+            var playerPocket = checkPair(player.hand, 0);
+            var playerAce = checkAce(player.hand.get(1)) + checkAce(player.hand.get(2));
+
+            if (playerPocket) { // If player pocket pair then pay instantly                            
+                //checkResult(player, "pairpocket");
+                //return;
+
+                tripButtonDiv = "visible";
+                payButtonDiv = "visible";
+                //document.getElementById("payButton").onClick = "javascript: pay(player, 'pair')";
+                //document.getElementById("payButton").onclick = function () { pay(player, 'pair'); }                
+                return;
+            }
+            else if (playerAce) { // If player has ace then lose instantly                            
+                checkResult(player, "aceplayer");
+                return;
+            }
+            else { // If no player pocket pair or ace then flip first dealer card
+                            
+                ppDealer.hand.show(1);
+                handHistoryLog("Dealer Shows:&nbsp;" + ppDealer.hand.get(1).name + "");
+
+                var dealerAce = checkAce(ppDealer.hand.get(1));
+
+                if (dealerAce) { // If dealer has ace then lose instantly                    
+                    checkResult(player, "acedealer");
+                    return;
+                }
+                else { // Display buttons and continue
+
+                    //document.getElementById("hitButtonDiv").style.left = "450px";
+                    hitButtonDiv = "visible";
+                    standButtonDiv = "visible";
+                }
+            }
+        }
+    }
+    
+</script>
+<script type="text/javascript">
+    
+    //*********************************************************************************
+
+    function hit(player) {
+
+        if ((playStatus) && (playRound < 4)) {
+
+            var betSize = (player.hand.wager / playRound);
+
+            if (player.bank.amount >= betSize) {
+            
+                playRound++;  // Increment round/card number  
+
+                player.hand.bet(betSize); // Player place new bet
+                player.bank.bet(betSize); // Take bet from bank
+                betChips(player, betSize, playRound);  // Place chips on board
+
+                player.hand.hit(ppShoe.deal()); // Player takes another card
+                player.hand.show(playRound);  // Show players new card 
+                handHistoryLog("Player Hits:&nbsp;" + player.hand.get(playRound).name + "");
+                
+                var playerAce = checkAce(player.hand.get(playRound));
+                if (playerAce) { // If player has ace then lose instantly
+                    checkResult(player, "aceplayer");
+                    return;
+                }
+                var playerPair = checkPair(player.hand, 0);
+                if (playerPair) { // If player pair then pay instantly
+                    checkResult(player, "pairplayer");
+                    return;
+                }
+
+                //*********************************************************************************
+                // If no player ace or pair then show next dealer and continue
+                ppDealer.hand.show(playRound - 1);  // Show next dealer card
+                handHistoryLog("Dealer Shows:&nbsp;" + ppDealer.hand.get(playRound - 1).name + "");
+                
+                var dealerAce = checkAce(ppDealer.hand.get(playRound - 1));
+                if (dealerAce) { // If dealer ace then lose instantly                    
+                    checkResult(player, "acedealer");
+                    return;
+                }
+                var dealerPair = checkPair(ppDealer.hand, (playRound - 1));
+                if (dealerPair) { // If dealer pair then win instantly                    
+                    checkResult(player, "pairdealer");
+                    return;
+                }
+
+                //*********************************************************************************
+                if (playRound >= 4) {  // If player has 4 cards (max) then stop playing                   	            
+
+                    checkResult(player, "endround");
+                    return;
+                }
+                else { // Move hit/clear buttons and continue
+
+                    //document.getElementById("hitButtonDiv").style.left = "510px";
+
+                    //document.getElementById("hitButtonDiv").style.top = "339px";
+                }
+            }
+            else {
+                window.alert("not enough bank amount - hit");
+            }
+        }
+    }
+
+    function pocket(player, type) {
+        if (playStatus) {
+
+            var betSize = (player.hand.wager / playRound);
+
+            if (player.bank.amount >= betSize) {
+
+                playRound = type;
+                
+                player.hand.bet(betSize); // Player place new bet
+                player.bank.bet(betSize); // Take bet from bank
+                betChips(player, betSize, playRound);  // Place chips on board
+
+                player.hand.hit(ppShoe.deal()); // Player takes another card
+                player.hand.show(playRound);  // Show players new card 
+                handHistoryLog("Player Hits:&nbsp;" + player.hand.get(playRound).name + "");
+
+                var playerAce = checkAce(player.hand.get(playRound));
+
+                if (player.hand.get(1).rank == player.hand.get(playRound).rank) { // If first card matches new card then Pocket Trips/Quads
+
+                    if (playRound == 3) { // If Pocket Trip then option to continue
+
+                        tripButtonDiv = "hidden";
+                        quadButtonDiv = "visible";
+                        payButtonDiv = "visible";
+                        //document.getElementById("payButton").onClick = "javascript: pay(player, 'trip')";
+                        //document.getElementById("payButton").onclick = function () { pay(player, 'trip'); }
+                        return;
+                    }
+                    else if (playRound == 4) { // If Pocket Quads then stop and instant pay
+                        
+                        pay(player, "quad");
+                        return;
+                    }
+                }
+                else if (playerAce) { // Ace loses
+                    checkResult(player, "acekiller");
+                    return;
+
+                    /*
+                    if (playRound == 3) { // If no trips then pay pair and end
+                        pay(player, "pair");
+                        return;
+                    }
+                    else if (playRound == 4) { // If no quads then pay trips and end
+                        pay(player, "trip");
+                        return;
+                    }
+                    */
+
+                }
+                else { // No trips/quads or ace - pay original
+                    //window.alert("No trips/quads or ace - pay original");
+
+                    if (playRound == 3) { // If no trips then pay pair and end
+                        pay(player, "pair");
+                        return;
+                    }
+                    else if (playRound == 4) { // If no quads then pay trips and end
+                        pay(player, "trip");
+                        return;
+                    }
+                }
+            }
+            else {
+                window.alert("not enough bank amount - pocket " + playRound);
+            }
+        }
+    }
+
+    function pay(player, type) {
+        if (playStatus) {
+
+            if (type == "pair") {
+                checkResult(player, "pairpocket");
+                return;
+            }
+            else if (type == "trip") {
+                checkResult(player, "trippocket");
+                return;
+            }
+            else if (type == "quad") {
+                checkResult(player, "quadpocket");
+                return;
+            }
+
+        }
+    }
+
+    function stand(player) {
+        if (playStatus) {
+
+            handHistoryLog("Player Stands");
+            
+            var dealerPair;
+            var dealerAce;
+
+            if (playRound <= 2) {
+                ppDealer.hand.show(2); // Show dealer card
+                handHistoryLog("Dealer Shows:&nbsp;" + ppDealer.hand.get(2).name + "");
+                //setTimeout(function () { ppDealer.hand.show(2); }, 500);   // Show dealer card  - after delay
+
+                dealerPair = checkPair(ppDealer.hand, 2);
+                dealerAce = checkAce(ppDealer.hand.get(2));
+                if (dealerAce) { // If dealer ace then lose instantly                    
+                    checkResult(player, "acedealer");
+                    return;
+                }
+                if (dealerPair) { // If dealer pair then win instantly                    
+                    checkResult(player, "pairdealer");
+                    return;
+                }
+            }
+            if (playRound <= 3) {
+                ppDealer.hand.show(3); // Show dealer card
+                handHistoryLog("Dealer Shows:&nbsp;" + ppDealer.hand.get(3).name + "");
+                //setTimeout(function () { ppDealer.hand.show(3); }, 1000);   // Show dealer card  - after delay
+
+                dealerPair = checkPair(ppDealer.hand, 3);
+                dealerAce = checkAce(ppDealer.hand.get(3));
+                if (dealerAce) { // If dealer ace then lose instantly                    
+                    checkResult(player, "acedealer");
+                    return;
+                }
+                if (dealerPair) { // If dealer pair then win instantly                    
+                    checkResult(player, "pairdealer");
+                    return;
+                }
+            }
+
+            // Stop playing
+            checkResult(player, "endstand");
+        }
+    }
+
+</script>
+<script type="text/javascript">
+
+    //*********************************************************************************
+
+    function checkResult(player, checkType) {
+
+        var result, resultAmount, resultType;
+
+        //alert(checkType);
+
+        result = "push";
+        resultAmount = 0;
+        resultType = "miss";
+
+        var playerHand, dealerHand;
+        playerHand = player.hand;
+        dealerHand = ppDealer.hand;
+
+        var playerHighCard, dealerHighCard;
+        playerHighCard = checkHighCard(playerHand);
+        dealerHighCard = checkHighCard(dealerHand);
+
+        var playerPair, dealerPair;
+        playerPair = checkPair(playerHand, 0);
+        dealerPair = checkPair(dealerHand, 0);
+
+        var playerCards, playerWager, playerBetSize;
+        playerCards = playerHand.cards.length;
+        playerWager = playerHand.wager;
+        playerBetSize = playerWager / playerCards;
+
+        //*********************************************************************************
+
+        logHandsNum++;
+        logHandsAmt += playerWager;
+
+        if (checkType == "quadpocket") {
+            handHistoryLog("POCKET QUADS!");
+
+            result = "win";
+            resultType = "quadpocket";
+            resultAmount = playerWager + (playerBetSize * (4 * 16)); // Pays 16:1 for each of 4 cards
+            logWinNum++;
+            logQuadNum++;
+            logWinAmt += (playerBetSize * (4 * 16));
+            logQuadAmt += (playerBetSize * (4 * 16));
+        }
+        else if (checkType == "trippocket") {
+            handHistoryLog("POCKET TRIPS!");
+
+            result = "win";
+            resultType = "trippocket";
+            resultAmount = playerWager + (playerBetSize * (3 * 8)); // Pays 8:1 for each of 3 cards
+            logWinNum++;
+            logTripNum++;
+            logWinAmt += (playerBetSize * (3 * 8));
+            logTripAmt += (playerBetSize * (3 * 8));
+        }
+        else if (checkType == "pairpocket") {
+            handHistoryLog("POCKET PAIR!");
+
+            result = "win";
+            resultType = "pairpocket";
+            resultAmount = playerWager + (playerBetSize * (2 * 2)); // Pays 2:1 for each of 2 cards
+            logWinNum++;
+            logPocketNum++;
+            logWinAmt += (playerBetSize * (2 * 2));
+            logPocketAmt += (playerBetSize * (2 * 2));
+        }
+        else if (checkType == "pairplayer") {
+            handHistoryLog("PLAYER PAIR!");
+
+            result = "win";
+            resultType = "playerpair";
+            resultAmount = playerWager + (playerBetSize * (2 * 1)); // Pays 1:1 for each of 2 cards
+            logWinNum++;
+            logPairNum++;
+            logWinAmt += (playerBetSize * (2 * 1));
+            logPairAmt += (playerBetSize * (2 * 1));
+        }
+        else if (checkType == "pairdealer") {
+            handHistoryLog("DEALER PAIR!");
+
+            result = "win"; // Option to win single bet for dealer pair
+            resultType = "dealerpair";
+            resultAmount = playerWager + (playerBetSize * (1 * 1)); // Pays 1:1 for just 1 bet
+            logWinNum++;
+            logDealNum++;
+            logWinAmt += (playerBetSize * (1 * 1));
+            logDealAmt += (playerBetSize * (1 * 1));
+
+            /*
+            result = "push"; // Option to push for dealer pair
+            resultType = "dealerpair";
+            resultAmount = playerWager;
+            logPushNum++;
+            logDealNum++;
+            logPushAmt += 0;
+            logDealAmt += 0;
+            */
+        }
+        else if (checkType == "aceplayer") {
+            handHistoryLog("PLAYER ACE!");
+
+            /*
+            result = "lose"; // Option to only lose specific ace card bet for player ace
+            resultType = "aceplayer";
+            resultAmount = playerWager - (playerBetSize * 1);
+            logLoseNum++;
+            logPaceNum++;
+            logLoseAmt -= (playerBetSize * 1);
+            logPaceAmt -= (playerBetSize * 1);
+            */
+
+            result = "lose";
+            resultType = "aceplayer";
+            resultAmount = 0;
+            logLoseNum++;
+            logPaceNum++;
+            logLoseAmt -= playerWager;
+            logPaceAmt -= playerWager;
+        }
+        else if (checkType == "acekiller") {
+            handHistoryLog("KILLER ACE!");
+
+            /*
+            result = "lose"; // Option to only lose specific ace card bet for killer ace
+            resultType = "acekiller";
+            resultAmount = playerWager - (playerBetSize * 1);
+            logLoseNum++;
+            logKaceNum++;
+            logLoseAmt -= (playerBetSize * 1);
+            logKaceAmt -= (playerBetSize * 1);
+            */
+
+            result = "lose";
+            resultType = "acekiller";
+            resultAmount = 0;
+            logLoseNum++;
+            logKaceNum++;
+            logLoseAmt -= playerWager;
+            logKaceAmt -= playerWager;
+        }
+        else if (checkType == "acedealer") {
+            handHistoryLog("DEALER ACE!");
+
+            result = "lose";
+            resultType = "acedealer";
+            resultAmount = 0;
+            logLoseNum++;
+            logDaceNum++;
+            logLoseAmt -= playerWager;
+            logDaceAmt -= playerWager;
+        }
+        else { // Compare high cards
+
+            if ((dealerHighCard < playerHighCard) && (playerHighCard < 11)) {
+                handHistoryLog("PLAYER HIGH CARD!");
+
+                //result = "push"; // Option to push if player high card is better but doesn't qualify Jacks better
+                //resultType = "qual";
+                //resultAmount = playerWager;
+                //logPushNum++;
+                //logQualNum++;
+                //logPushAmt += 0;
+                //logQualAmt += 0;
+
+                result = "win"; // // If player high card is better then win even if no qualify
+                resultType = "highplayer";
+                resultAmount = playerWager + (playerBetSize * 1);
+                logWinNum++;
+                logHighNum++;
+                logWinAmt += (playerBetSize * 1);
+                logHighAmt += (playerBetSize * 1);
+            }
+            else if ((dealerHighCard < playerHighCard) && (playerHighCard >= 11)) {
+                handHistoryLog("PLAYER HIGH CARD!");
+
+                result = "win"; // // If player high card is better then win 
+                resultType = "highplayer";
+                resultAmount = playerWager + (playerBetSize * 1);
+                logWinNum++;
+                logHighNum++;
+                logWinAmt += (playerBetSize * 1);
+                logHighAmt += (playerBetSize * 1);
+            }
+            else if (dealerHighCard == playerHighCard) {
+                handHistoryLog("HIGH CARD TIE - PUSH!");
+
+                result = "push"; // If high cards tie then tie
+                resultType = "hightie";
+                resultAmount = playerWager;
+                logPushNum++;
+                logTieNum++;
+                logPushAmt += 0;
+                logTieAmt += 0;
+            }
+            else if ((dealerHighCard > playerHighCard) && (dealerHighCard < 11)) {
+                handHistoryLog("DEALER HIGH CARD!");
+
+                //result = "push"; // Option to push if dealer high card is better but doesn't qualify Jacks better
+                //resultType = "qual";
+                //resultAmount = playerWager;
+                //logPushNum++;
+                //logQualNum++;
+                //logPushAmt += 0;
+                //logQualAmt += 0;
+
+                result = "lose"; // If dealer high card is better then lose even if no qualify
+                resultType = "highdealer";
+                resultAmount = playerWager - (playerBetSize * 1);
+                logLoseNum++;
+                logLowNum++;
+                logLoseAmt -= (playerBetSize * 1);
+                logLowAmt -= (playerBetSize * 1);
+            }
+            else if ((dealerHighCard > playerHighCard) && (dealerHighCard >= 11)) {
+                handHistoryLog("DEALER HIGH CARD!");
+
+                result = "lose"; // If dealer high card is better then lose
+                resultType = "highdealer";
+                resultAmount = playerWager - (playerBetSize * 1);
+                logLoseNum++;
+                logLowNum++;
+                logLoseAmt -= (playerBetSize * 1);
+                logLowAmt -= (playerBetSize * 1);
+            }
+            else {
+                handHistoryLog("MISDEAL - PUSH!");
+
+                result = "push"; // If misdeal then push
+                resultType = "misdeal";
+                resultAmount = playerWager;
+                logPushNum++;
+                logMisNum++;
+                logPushAmt += 0;
+                logMisAmt += 0;
+
+                window.alert("MISDEAL - PUSH!");
+            }
+        }
+
+        player.bank.win(resultAmount);
+        //player.bank.show();
+
+        handHistoryLog("Total Wager: " + formatCurrency(playerWager));
+        if (result == "win") {
+            handHistoryLog("Player Wins: " + formatCurrency(resultAmount - playerWager));
+        }
+        else if (result == "lose") {
+            handHistoryLog("Player Loses: " + formatCurrency(resultAmount - playerWager));
+        }
+        else { // Push
+            handHistoryLog("Player Pushes");
+        }
+        
+        // Hide unused buttons
+        hitButtonDiv = "hidden";
+        standButtonDiv = "hidden";
+        tripButtonDiv = "hidden";
+        quadButtonDiv = "hidden";
+        payButtonDiv = "hidden";
+
+        // Show new buttons
+        if (playRound <= 2) {
+            //document.getElementById("clearButtonDiv").style.left = "450px";
+        }
+        else if (playRound == 3) {
+            //document.getElementById("clearButtonDiv").style.left = "510px";
+        }
+        else if (playRound == 4) {
+            //document.getElementById("clearButtonDiv").style.left = "572px";
+        }
+
+        clearButtonDiv = "visible";
+        rebetButtonDiv = "visible";
+
+        // Display results
+        //document.getElementById(player.name + "ResultDiv").innerHTML = "&nbsp; playerHighCard: " + playerHighCard + " // dealerHighCard: " + dealerHighCard + " // playerPair: " + playerPair + " // dealerPair: " + dealerPair + " // result: " + result + " // resultType: " + resultType + " // resultAmount: " + resultAmount;
+
+        updateLog();
+
+        //playStatus = false;
+        playRound = 0;
+        return false;
+
+    }
+
+</script>
+<script type="text/javascript">
+
+    function checkAce(checkCard) {
+        var ace;
+        ace = false;
+
+        if (checkCard.rank == "A") {
+            ace = true;
+        }
+        return ace;
+    }
+
+    function checkHighCard(checkHand) {
+        var highcard = 0;
+
+        for (var i = 0; i < checkHand.cards.length; i++) {
+            if (checkHand.cards[i].num > highcard) {
+                highcard = checkHand.cards[i].num;
+            }
+        }
+        return highcard;
+    }
+
+    function checkPair(checkHand, cardLength) {
+
+        var pair;
+        pair = false;
+
+        //var checkHand;
+        //checkHand = player.hand;
+
+        if (cardLength == 0) {
+            cardLength = checkHand.cards.length;
+        }
+
+        var c1, c2;
+        for (c1 = 0; c1 < cardLength; c1++) {
+
+            for (c2 = 0; c2 < cardLength; c2++) {
+
+                if (c1 != c2) {
+
+                    if (checkHand.cards[c1].rank == checkHand.cards[c2].rank) {
+                        pair = true;
+                    }
+                }
+            }
+        }
+
+        return pair;
+    }
+
+</script>
+<script type="text/javascript">
+    //*********************************************************************************
+
+    function end(player) {
+
+        playStatus = false;
+        playRound = 0;
+
+        //document.getElementById("betAmount").disabled = false;
+        //document.getElementById("bet5Chip").disabled = false;
+        //document.getElementById("bet10Chip").disabled = false;
+        //document.getElementById("bet25Chip").disabled = false;
+        //document.getElementById("bet100Chip").disabled = false;
+        //document.getElementById("bet0Button").disabled = false;
+
+        //document.getElementById("ppPlayerBet1Div").style.cursor = "pointer";
+        //document.getElementById("ppPlayerBet2Div").style.cursor = "pointer";
+
+        dealButtonDiv = "hidden";
+        hitButtonDiv = "hidden";
+        tripButtonDiv = "hidden";
+        quadButtonDiv = "hidden";
+        payButtonDiv = "hidden";
+        standButtonDiv = "hidden";
+        clearButtonDiv = "hidden";
+        rebetButtonDiv = "visible";
+
+        //document.getElementById("endButton").disabled = true;
+
+        //clearResult(player);
+        clearWager(player);
+        clearChips(player);
+
+        player.hand.clear();
+        ppDealer.hand.clear();
+
+        //player.hand.show(0);
+        //ppDealer.hand.show(0);
+    }
+
+</script>
+<script type="text/javascript">
+    //*********************************************************************************
+
+    function betChips(player, betAmount, betNumber) {
+
+	    rebetButtonDiv = "hidden"; // if bet is placed then no rebet button
+	    minbetButtonDiv = "hidden"; // if bet is placed then no rebet button
+	            
+        var chipsTypes = new Array(100,25,10,5) // Array of chip denominations - must be highest to lowest
+        var chipValue, chipLoc, chipNum;
+        var chipsStack = new Array();
+	    var chipsAmount = betAmount;
+        var s, c, t;
+
+       for (s = 0; s < chipsTypes.length; s++) {  // Loop through different chip types
+
+            chipValue = parseInt(chipsTypes[s]);
+            if (chipsAmount >= chipValue) { // If chip is in amount then add to stack
+
+                chipNum = parseInt(chipsAmount / chipValue);
+
+                //window.alert("chipValue : " + chipValue);
+                //window.alert("chipsAmount : " + chipsAmount);
+                //window.alert("chipNum : " + chipNum);
+                //window.alert("parseInt(chipsAmount / chipValue) : " + parseInt(chipsAmount / chipValue));
+
+                for (c = 0; c < chipNum; c++) {
+                    chipsStack.push(chipValue);
+                    chipsAmount -= chipValue;
+                }
+            }
+        }
+
+        //window.alert("chipsStack : " + chipsStack );
+
+        if (betNumber == 0) { // If first bet, set both first 2 positions
+
+            dealButtonDiv = "visible"; // if first bet is placed then option to deal
+            resetButtonDiv = "visible"; // if bet is placed then then option to reset to clear bets
+            
+            // Clear previous chip stack
+            document.getElementById(player.name + "Bet1Div").innerHTML = "";
+            document.getElementById(player.name + "Bet2Div").innerHTML = "";
+
+            // Loop through chips and place with offset
+            for (t = 0; t < chipsStack.length; t++) {
+                chipLoc = (8 + (t * 3));
+                //document.getElementById(player.name + "Bet1Div").innerHTML += "<img src='/images/chips/chip_" + chipsStack[t] + ".png' title='$" + betAmount + "' alt='$" + betAmount + "' style='position: absolute; left: " + chipLoc + "px; bottom: " + chipLoc + "px;'   />";
+                //document.getElementById(player.name + "Bet2Div").innerHTML += "<img src='/images/chips/chip_" + chipsStack[t] + ".png' title='$" + betAmount + "' alt='$" + betAmount + "' style='position: absolute; left: " + chipLoc + "px; bottom: " + chipLoc + "px;'   />";
+            }
+
+	    }
+	    else {
+
+	        // Clear previous chip stack
+	        document.getElementById(player.name + "Bet" + betNumber + "Div").innerHTML = "";
+
+	        // Loop through chips and place with offset
+	        for (t = 0; t < chipsStack.length; t++) {
+	            chipLoc = (8 + (t * 3));
+	            //document.getElementById(player.name + "Bet" + betNumber + "Div").innerHTML += "<img src='/images/chips/chip_" + chipsStack[t] + ".png' title='Bet $" + betAmount + "' alt='Bet $" + betAmount + "' style='position: absolute; left: " + chipLoc + "px; bottom: " + chipLoc + "px;'   />";
+	        }
+            
+	    }
+	}
+
+	function clearChips(player) {
+	    document.getElementById(player.name + "Bet1Div").innerHTML = "";
+	    document.getElementById(player.name + "Bet2Div").innerHTML = "";
+	    document.getElementById(player.name + "Bet3Div").innerHTML = "";
+	    document.getElementById(player.name + "Bet4Div").innerHTML = "";
+
+	    document.getElementById(player.name + "BonusBetDiv").innerHTML = "";
+
+	    resetButtonDiv = "hidden";
+	    dealButtonDiv = "hidden";
+	}
+
+	//*********************************************************************************
+
+	function betValidate(player) {
+		var betAmount = document.getElementById("betAmount").value;
+
+		if (isNaN(parseInt(betAmount))) {
+			window.alert("Invalid Bet - NaN");
+         
+			return false;
+        }
+        else if (betAmount < tableMin) {
+            window.alert("Invalid Bet - < Table Min");
+
+            return false;
+        }
+        else if (betAmount > tableMax) {
+            window.alert("Invalid Bet - < Table Max");
+
+            return false;
+        }
+        else if ((betAmount * 2) > player.bank.amount) { // Need at least double bet amount - two start cards - two start bets
+            window.alert("Invalid Bet - > bankroll");
+
+            return false;
+		}
+		else {
+			return true;
+        }             
+
+	}
+
+</script>
+<script type="text/javascript">
+	function wager(player, betAmount) {
+
+		if (!playStatus) {
+
+			if (betAmount == 0) {
+			    document.getElementById("betAmount").value = 0;
+			    clearChips(player);
+			}
+			else {
+			    var oldAmount = parseInt(document.getElementById("betAmount").value);
+
+                // if current bet is invalid then set to 0
+			    if (isNaN(parseInt(oldAmount))) {
+			        oldAmount = 0;
+			    }
+                
+                // if bet area is currently empty then reset
+			    if ((document.getElementById(player.name + "Bet1Div").innerHTML == "") && (document.getElementById(player.name + "Bet2Div").innerHTML == "")) {
+			        oldAmount = 0;
+                }
+
+			    // update bet amount
+                var newAmount = parseInt(oldAmount + betAmount);
+                var totalAmount = parseInt(betAmount * 2); // Place 1 bet for each card
+
+                document.getElementById("betAmount").value = newAmount;
+
+                if (betValidate(player)) {
+
+                    betChips(player, newAmount, 0);
+
+                    player.bank.bet(totalAmount);
+                    //player.bank.show();
+                }
+                else {
+                    document.getElementById("betAmount").value = oldAmount;
+                }
+			}
+        }
+	}
+
+    function rebet(player) {
+        //var oldAmount = parseInt(document.getElementById("betAmount").value);
+
+        var oldBet = parseInt(document.getElementById("betAmount").value);
+        var oldBonus = parseInt(document.getElementById("bonusAmount").value);
+        
+        end(player);
+        //betValidate(player);
+
+        wager(player, oldBet);
+        betBonus(player, oldBonus);
+
+    }
+
+    function reset(player) {
+        //end(player);
+
+        // get previous bet amount and refund to bank
+        var oldAmount = parseInt(document.getElementById("betAmount").value);
+        var oldTotal = parseInt(oldAmount * 2);
+        player.bank.deposit(oldTotal);
+        //player.bank.show();
+
+        // set bet amount to 0 and clear chips
+        document.getElementById("betAmount").value = 0;
+        clearChips(player);
+
+        // clear bonus bet
+        clearBonus(player);
+
+        minbetButtonDiv = "visible";
+    }
+
+</script>
+<script type="text/javascript">
+	//*********************************************************************************
+
+	function bonusButton(player, betAmount) {
+	    if (!playStatus) {
+
+	        var bonusAmount = parseInt(document.getElementById("bonusAmount").value);
+
+	        if (bonusAmount > 0) {
+	            clearBonus(player, betAmount);
+	        }
+	        else {
+	            betBonus(player, betAmount);
+	        }
+	    }
+	}
+
+	function betBonus(player, betAmount) {
+
+	    if (betAmount > 0) {
+
+	        //player.hand.bonus = betAmount;
+	        document.getElementById("bonusAmount").value = parseInt(betAmount);
+
+	        player.bank.bet(betAmount);
+	        //player.bank.show();
+
+	        //document.getElementById(player.name + "BonusBetDiv").innerHTML = "<img src='/images/chips/chip_" + betAmount + ".png' title='Perfect Pair Bonus Bet' alt='Perfect Pair Bonus Bet' style='position: absolute; left: 8px; bottom: 7px;' />";
+	    }
+	}
+
+	function clearBonus(player) {
+
+	    //player.hand.bonus = 0;
+
+	    var bonusAmount = parseInt(document.getElementById("bonusAmount").value);
+
+	    if (bonusAmount > 0) {
+
+	        document.getElementById("bonusAmount").value = 0;
+
+	        player.bank.deposit(bonusAmount);
+	        //player.bank.show();
+
+	        document.getElementById(player.name + "BonusBetDiv").innerHTML = "";
+	    }
+	}
+
+</script>
+<script type="text/javascript">
+	//*********************************************************************************
+
+	function changeDeck() {
+
+	    if (!playStatus) {
+
+	        ppShoe.make(6); // Shoe with 6 decks - standard shoe size
+	        ppShoe.shuffle(3); // Shuffle 3 times  
+
+	        if (deckColor == "blue") {
+	            deckColor = "red";
+	        }
+	        else if (deckColor == "red") {
+	            deckColor = "green";
+	        }
+	        else if (deckColor == "green") {
+	            deckColor = "black";
+	        }
+	        else if (deckColor == "black") {
+	            deckColor = "blue";
+	        }
+	        //document.getElementById("tableDiv").style.background = "url('/images/tables/table_" + deckColor + ".jpg') no-repeat";
+	    }
+	    else {
+	        window.alert("Please finish your current hand before requesting a shoe change.");
+	    }
+	}
+
+
+	//*********************************************************************************
+
+	function changeLimit(player) {
+
+	    if (!playStatus) {
+
+	        ppShoe.make(6); // Shoe with 6 decks - standard shoe size
+	        ppShoe.shuffle(3); // Shuffle 3 times  
+
+	        if (tableMin == 5) {
+	            tableMin = 10;
+	            tableMax = 500;
+	        }
+	        else if (tableMin == 10) {
+	            tableMin = 25;
+	            tableMax = 1000;
+	        }
+	        else if (tableMin == 25) {
+	            tableMin = 100;
+	            tableMax = 5000;
+	        }
+	        else if (tableMin == 100) {
+	            tableMin = 5;
+	            tableMax = 100;
+	        }
+	        //document.getElementById("tableLimitDiv").style.background = "url('/images/tables/table_limit_" + tableMin + ".png') no-repeat";
+
+	        reset(player);
+	    }
+	    else {
+	        window.alert("Please finish your current hand before requesting a table limit change.");
+	    }
+	}
+	
+
+	//*********************************************************************************
+
+	function handHistoryButton() {
+        /*
+	    if (document.getElementById("handHistoryLogDiv").style.visibility == "visible") {
+	        document.getElementById("handHistoryLogDiv").style.visibility = "hidden";
+	        document.getElementById("handHistoryTitleDiv").style.bottom = "4px";
+	        document.getElementById("handStatsTitleDiv").style.bottom = "4px";
+	        document.getElementById("handHistoryTitleDiv").title = "Display Hand History";
+	    }
+	    else {
+	        document.getElementById("handHistoryLogDiv").style.visibility = "visible";
+	        document.getElementById("handHistoryTitleDiv").style.bottom = "151px";
+	        document.getElementById("handStatsTitleDiv").style.bottom = "151px";
+	        document.getElementById("handHistoryTitleDiv").title = "Hide Hand History";
+	    }
+        */
+
+	}
+
+	function handStatsButton() {
+
+	    if (document.getElementById("handStatsDiv").style.visibility == "visible") {
+	        //document.getElementById("handStatsDiv").style.visibility = "hidden";
+
+	        //document.getElementById("handStatsWrapDiv").className = "";
+
+	    }
+	    else {
+	        document.getElementById("handStatsDiv").style.visibility = "visible";
+
+	        document.getElementById("handStatsWrapDiv").className = "print";	     
+	    }
+
+	}
+
+	function gameHelpButton() {
+
+	    if (document.getElementById("gameHelpDiv").style.visibility == "visible") {
+	        document.getElementById("gameHelpDiv").style.visibility = "hidden";
+
+	        document.getElementById("gameHelpWrapDiv").className = "";
+
+	    }
+	    else {
+	        document.getElementById("gameHelpDiv").style.visibility = "visible";
+
+	        document.getElementById("gameHelpWrapDiv").className = "print";
+	    }
+
+	}
+
+</script>
+<script type="text/javascript">
+    function bodyLoad() {
+        preLoad();
+    }   
+    
+    // Preload all images - instant transition when showing cards or switching tables
+    function preLoad() {
+
+        // Create arrays to hold preloaded images
+        var preLoadCardImgArr = new Array;
+        var preLoadTableImgArr = new Array;
+        var preLoadBackImgArr = new Array;
+        var preLoadChipImgArr = new Array;
+        var preLoadLimitImgArr = new Array;
+
+        // Create new Shoe to loop through card images
+        var preLoadShoe = new Shoe(); 
+        preLoadShoe.make(1);
+
+        for (var i = 0; i < preLoadShoe.cards.length; i++) {
+
+            //preLoadCardImgArr[i] = new Image();
+            //preLoadCardImgArr[i].src = "/images/cards/" + preLoadShoe.cards[i].name + ".png";
+        }
+
+        // Create color array to loop through card backs and table colors
+        var preLoadColorArr = new Array("blue", "red", "green", "black");  
+
+        for (var i = 0; i < preLoadColorArr.length; i++) {
+
+            //preLoadTableImgArr[i] = new Image();
+            //preLoadTableImgArr[i].src = "/images/tables/table_" + preLoadColorArr[i] + ".jpg";
+
+            //preLoadBackImgArr[i] = new Image();
+            //preLoadBackImgArr[i].src = "/images/cards/back_" + preLoadColorArr[i] + ".png";
+        }
+
+        // Create chip array to loop through chip images
+        var preLoadChipsArr = new Array("1", "5", "10", "25", "100");  
+
+        for (var i = 0; i < preLoadChipsArr.length; i++) {
+
+            //preLoadChipImgArr[i] = new Image();
+            //preLoadChipImgArr[i].src = "/images/chips/chip_" + preLoadChipsArr[i] + ".png";
+        }
+
+        // Create limit array to loop through limit images
+        var preLoadLimitArr = new Array("5", "10", "25", "100");
+
+        for (var i = 0; i < preLoadLimitArr.length; i++) {
+
+            //preLoadLimitImgArr[i] = new Image();
+            //preLoadLimitImgArr[i].src = "/images/tables/table_limit_" + preLoadChipsArr[i] + ".png";
+        }
+    }
+</script>
+<script type="text/javascript">
+    var minbetButtonDiv, rebetButtonDiv, dealButtonDiv, tripButtonDiv, quadButtonDiv, hitButtonDiv, resetButtonDiv, clearButtonDiv, payButtonDiv;
+
+    minbetButtonDiv = "visible";
+
+    function simulate(num, player) {
+
+        var simPlayerHighCard, simDealerHighCard
+
+        for (var i = 0; i < num; i++) {
+
+            if (player.bank.amount <= (tableMin * 4)) {
+                break;
+            }
+            
+            if (minbetButtonDiv == "visible") {
+                wager(player, tableMin);
+            }
+            else if (rebetButtonDiv == "visible") {
+                rebet(player);
+            }
+            else if (dealButtonDiv == "visible") {
+                deal(player);
+            }
+            else if (tripButtonDiv == "visible") {
+                pocket(ppPlayer, 3);
+            }
+            else if (quadButtonDiv == "visible") {
+                pocket(ppPlayer, 4);
+            }
+            else if (hitButtonDiv == "visible") {
+            
+                simPlayerHighCard = checkHighCard(player.hand);
+                simDealerHighCard = ppDealer.hand.get(1).num;  // Only use first dealer card revealed
+                
+                if (simDealerHighCard >= simPlayerHighCard) { // If lower than dealer first card then hit
+                    hit(player);
+                }
+                else if (simPlayerHighCard < 11) { // If lower than Jack then hit
+                    hit(player);
+                }
+                else { // If higher then stand
+                    stand(player);
+                }                 
+            }
+        }
+
+        //window.alert("SIMULATION COMPLETE : " + i + "/" + num);
+
+    }
+</script>
+<body style="margin: 0px; padding: 0px; background: #023505;" onload="javascript: bodyLoad();">
+    <div id="tableDiv" style="background: url('/images/tables/table_blue.jpg') no-repeat; -webkit-box-shadow: 6px 7px 12px 5px; box-shadow: 6px 7px 12px 5px; position: relative; border: 4px solid #000000; margin-left: auto; margin-right: auto; width: 755px; height: 500px;">
+        <div id="ppDealerHandDiv">
+            <div id="ppDealerCard1Div" style="position: absolute; left: 293px; top: 52px;">
+            </div>
+            <div id="ppDealerCard2Div" style="position: absolute; left: 353px; top: 52px;">
+            </div>
+            <div id="ppDealerCard3Div" style="position: absolute; left: 413px; top: 52px;">
+            </div>
+            <div id="ppDealerCard4Div" style="position: absolute; left: 473px; top: 52px;">
+            </div>
+        </div>
+        <div id="ppPlayerHandDiv">
+            <div id="ppPlayerCard1Div" style="position: absolute; left: 319px; top: 239px;">
+            </div>
+            <div id="ppPlayerCard2Div" style="position: absolute; left: 379px; top: 239px;">
+            </div>
+            <div id="ppPlayerCard3Div" style="position: absolute; left: 445px; top: 239px;">
+            </div>
+            <div id="ppPlayerCard4Div" style="position: absolute; left: 505px; top: 239px;">
+            </div>
+        </div>
+        <div id="ppPlayerWager">
+            <div id="ppPlayerBet1Div" style="cursor: pointer; position: absolute; left: 320px; top: 332px; width: 46px; height: 46px;" onclick="javascript: wager(ppPlayer, 5); return false;"></div>
+            <div id="ppPlayerBet2Div" style="cursor: pointer; position: absolute; left: 384px; top: 332px; width: 46px; height: 46px;" onclick="javascript: wager(ppPlayer, 5); return false;"></div>
+            <div id="ppPlayerBet3Div" style="position: absolute; left: 449px; top: 332px; width: 46px; height: 46px;"></div>
+            <div id="ppPlayerBet4Div" style="position: absolute; left: 509px; top: 332px; width: 46px; height: 46px;"></div>
+        </div>
+        <div id="playButtonsDiv">            
+            <div id="dealButtonDiv" style="position: absolute; left: 346px; top: 259px; visibility: hidden;" title="Deal Cards & Start Hand">
+                <a id="dealButton" href="javascript: void(0);" class="greenButton" onclick="javascript: deal(ppPlayer);">&nbsp;Deal&nbsp;</a>
+            </div>
+            <div id="hitButtonDiv" style="position: absolute; left: 450px; top: 339px; visibility: hidden;" title="Hit - Place Bet & Take Card">
+                <a id="hitButton" href="javascript: void(0);" class="greenButton" onclick="javascript: hit(ppPlayer);">&nbsp;Hit&nbsp;</a>
+            </div>
+            <div id="tripButtonDiv" style="position: absolute; left: 446px; top: 339px; visibility: hidden;" title="Hit for Trips - Place Bet & Take Card">
+                <a id="tripButton" href="javascript: void(0);" class="greenButton" onclick="javascript: pocket(ppPlayer, 3);">Trips</a>
+            </div>
+            <div id="quadButtonDiv" style="position: absolute; left: 503px; top: 339px; visibility: hidden;" title="Hit for Quads - Place Bet & Take Card">
+                <a id="quadButton" href="javascript: void(0);" class="greenButton" onclick="javascript: pocket(ppPlayer, 4);">Quads</a>
+            </div>
+            <div id="payButtonDiv" style="position: absolute; left: 246px; top: 339px; visibility: hidden;" title="Pay! - Collect Winnings">
+                <a id="payButton" href="javascript: void(0);" class="greenButton">&nbsp;Pay!&nbsp;</a>
+            </div>  
+            <div id="standButtonDiv" style="position: absolute; left: 246px; top: 339px; visibility: hidden;" title="Stand - Stop Betting">
+                <a id="standButton" href="javascript: void(0);" class="redButton" onclick="javascript: stand(ppPlayer);">Stand</a>
+            </div>            
+            <div id="clearButtonDiv" style="position: absolute; left: 450px; top: 259px; visibility: hidden;" title="Clear Previous Hand">
+                <a id="clearButton" href="javascript: void(0);" class="redButton" onclick="javascript: end(ppPlayer);">&nbsp;Clear&nbsp;</a>
+            </div>
+            <div id="rebetButtonDiv" style="position: absolute; left: 243px; top: 339px; visibility: hidden;"title="Rebet Last Amount">
+                <a id="rebetButton" href="javascript: void(0);" class="greenButton" onclick="javascript: rebet(ppPlayer);">Rebet</a>
+            </div>
+            <div id="resetButtonDiv" style="position: absolute; left: 450px; top: 339px; visibility: hidden;" title="Remove Bets">
+                <a id="resetButton" href="javascript: void(0);" class="redButton" onclick="javascript: reset(ppPlayer);">Remove</a>
+            </div>
+            <div id="minbetButtonDiv" style="position: absolute; left: 241px; top: 339px; visibility: visible;" title="Place Minimum Bet">
+                <a id="minbetButton" href="javascript: void(0);" class="greenButton" onclick="javascript: wager(ppPlayer, tableMin);">Bet Min</a>
+            </div>
+        </div>
+        <div id="betChipsDiv">
+            <div id="betChips5Div" style="position: absolute; left: 11px; top: 339px;" title="Bet $5">
+                <img src="/images/chips/chip_5.png" id="bet5Chip" alt="Bet $5" style="cursor: pointer;" onclick="javascript: wager(ppPlayer, 5);" />
+            </div>
+            <div id="betChips10Div" style="position: absolute; left: 42px; top: 360px;" title="Bet $10">
+                <img src="/images/chips/chip_10.png" id="bet10Chip" alt="Bet $10" style="cursor: pointer;" onclick="javascript: wager(ppPlayer, 10);" />
+            </div>
+            <div id="betChips25Div" style="position: absolute; left: 75px; top: 378px;" title="Bet $25">
+                <img src="/images/chips/chip_25.png" id="bet25Chip" alt="Bet $25" style="cursor: pointer;" onclick="javascript: wager(ppPlayer, 25);" />
+            </div>
+            <div id="betChips100Div" style="position: absolute; left: 109px; top: 395px;" title="Bet $100">
+                <img src="/images/chips/chip_100.png" id="bet100Chip" alt="Bet $100" style="cursor: pointer;" onclick="javascript: wager(ppPlayer, 100);" />
+            </div>
+        </div>
+        <div id="ppPlayerBankDiv" style="cursor: default; position: absolute; left: 4px; bottom: 4px; padding: 2px 2px; background: rgba(65,0,0,0.75); text-align: center; border: 3px inset #f3c726;  ">
+            <span style="color: #fbdc68; font-family: Verdana; font-size: 12px; font-weight: bold; text-decoration: underline; font-weight: bold;" title="Player Bankroll">BANKROLL</span><br />
+            <span id="ppPlayerBankAmount" style="color: #fbdc68; font-family: Arial; font-size: 24px; font-weight: bold;" >$5,000</span>
+        </div>
+        <div id="ppPlayerWagerDiv">
+        </div>
+        <div id="ppPlayerWagerAmount">
+        </div>
+        <div id="tableBonusDiv" style="cursor: pointer; width: 60px; height: 60px; position: absolute; left: 243px; top: 225px; background: url('images/tables/table_bonus_perfect.png') no-repeat;">
+        </div>
+        <div id="ppPlayerBonusBetDiv" style="z-index: 100; cursor: pointer; width: 46px; height: 46px; position: absolute; left: 250px; top: 231px;" title="Perfect Pair Bonus Bet" onclick="javascript: bonusButton(ppPlayer, 1); return false;">
+        </div>
+        <div id="tableShoeDiv" style="cursor: pointer; width: 80px; height: 60px; position: absolute; left: 595px; top: 0px;" title="Change Cards" onclick="javascript: changeDeck();">
+        </div>
+        <div id="tableMuckDiv" style="cursor: pointer; width: 55px; height: 45px; position: absolute; left: 40px; top: 0px;" title="Change Cards" onclick="javascript: changeDeck();">
+        </div>
+        <div id="tableLimitDiv" style="background: url('images/tables/table_limit_5.png') no-repeat; cursor: pointer; width: 103px; height: 47px; position: absolute; left: 112px; top: 0px;" title="Change Table Limit" onclick="javascript: changeLimit(ppPlayer);">
+        </div>
+        <div id="handHistoryTitleDiv" class="yellowButton" style="text-align: center; width: 80px; position: absolute; right: 86px; bottom: 4px;" onclick="javascript: handHistoryButton();" title="Display Hand History">
+            Hand History
+        </div>
+        <div id="handStatsTitleDiv" class="yellowButton" style="text-align: center; width: 80px; position: absolute; right: 4px; bottom: 4px;" onclick="javascript: handStatsButton();" title="Display Session Playing Stats">
+            Playing Stats
+        </div>
+        <div id="handHistoryLogDiv" style="cursor: default; color: #310000; font-family: Arial; font-size: 12px; font-weight: normal; width: 164px; height: 142px; position: absolute; right: 4px; bottom: 4px; border: 3px inset #f3c726; overflow-y: scroll; background: rgba(255,255,255,0.9); visibility: hidden;"></div>        
+        <div id="handStatsDiv" class="" style="display: table; cursor: default; color: #310000; font-family: Arial; font-size: 12px; font-weight: normal; width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; background: rgba(210,210,180,0.75); visibility: visible;">
+            <div id="handStatsWrapDiv" class="print" style="display: table-cell; vertical-align: middle;">
+                <table id="handStatsTable" class="center table" style="vertical-align: middle; width: 450px;">
+                    <tr>
+                        <td colspan="5">
+                            <img src="/logo.png" alt="Pocket Paired" style="width: 16px;" /><span style="font-size: 22px;">&nbsp;Pocket Paired</span><span style="font-size: 20px;">&trade;</span>
+                            <!--
+                            <br />
+                            <span style="font-size: 18px; font-style:italic">Playing Stats</span>
+                            -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td id="titleHandsNum" style="width: 75px;" class="bold right">
+                            Hands #
+                        </td>
+                        <td id="titleHandsPerc" style="width: 75px;" class="bold right">
+                            Hands %
+                        </td>
+                        <td id="titleAmt" style="width: 75px;" class="bold right">
+                            Amount $
+                        </td>
+                        <td id="titleAmtPerc" style="width: 75px;" class="bold right">
+                            Amount %
+                        </td>
+                    </tr>
+                    <tr class="right">
+                        <td class="bold">
+                            Hands:&nbsp;
+                        </td>
+                        <td id="logHandsNum" >0
+                        </td>
+                        <td id="logHandsNumPerc" >0%
+                        </td>
+                        <td id="logHandsAmt">$0
+                        </td>
+                        <td id="logHandsAmtPerc" >0%
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr class="right">
+                        <td class="bold">
+                            Win:&nbsp;
+                        </td>
+                        <td id="logWinNum">0
+                        </td>
+                        <td id="logWinNumPerc">0%
+                        </td>
+                        <td id="logWinAmt">$0
+                        </td>
+                        <td id="logWinAmtPerc">0%
+                        </td>
+                    </tr>
+                    <tr class="right">
+                        <td class="bold">
+                            Lose:&nbsp;
+                        </td>
+                        <td id="logLoseNum">0
+                        </td>
+                        <td id="logLoseNumPerc">0%
+                        </td>
+                        <td id="logLoseAmt">$0
+                        </td>
+                        <td id="logLoseAmtPerc">0%
+                        </td>
+                    </tr>
+                    <tr class="right">
+                        <td class="bold">
+                            Push:&nbsp;
+                        </td>
+                        <td id="logPushNum">0
+                        </td>
+                        <td id="logPushNumPerc">0%
+                        </td>
+                        <td id="logPushAmt">$0
+                        </td>
+                        <td id="logPushAmtPerc">0%
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="center italic">
+                            <br style="height: 4px; font-size: 4px;" />
+                            Winning Hands
+                        </td>
+                    </tr>
+                    <tr class="right">
+                        <td class="bold">
+                            Player High Card:&nbsp;
+                        </td>
+                        <td id="logHighNum">0
+                        </td>
+                        <td id="logHighNumPerc">0%
+                        </td>
+                        <td id="logHighAmt">$0
+                        </td>
+                        <td id="logHighAmtPerc">0%
+                        </td>
+                    </tr>
+                    <tr class="right">
+                        <td class="bold">
+                            Dealer Pair:&nbsp;
+                        </td>
+                        <td id="logDealNum">0
+                        </td>
+                        <td id="logDealNumPerc">0%
+                        </td>
+                        <td id="logDealAmt">$0
+                        </td>
+                        <td id="logDealAmtPerc">0%
+                        </td>
+                    </tr>
+                    <tr class="right ">
+                        <td class="bold">
+                            Player Pair:&nbsp;
+                        </td>
+                        <td id="logPairNum">0
+                        </td>
+                        <td id="logPairNumPerc">0%
+                        </td>
+                        <td id="logPairAmt">$0
+                        </td>
+                        <td id="logPairAmtPerc">0%
+                        </td>
+                    </tr>
+                    <tr class="right">
+                        <td class="bold">
+                            Pocket Pair:&nbsp;
+                        </td>
+                        <td id="logPocketNum">0
+                        </td>
+                        <td id="logPocketNumPerc">0%
+                        </td>
+                        <td id="logPocketAmt">$0
+                        </td>
+                        <td id="logPocketAmtPerc">0%
+                        </td>
+                    </tr>
+                    <tr class="right">
+                        <td class="bold">
+                            Pocket Trips:&nbsp;
+                        </td>
+                        <td id="logTripNum">0
+                        </td>
+                        <td id="logTripNumPerc">0%
+                        </td>
+                        <td id="logTripAmt">$0
+                        </td>
+                        <td id="logTripAmtPerc">0%
+                        </td>
+                    </tr>
+                    <tr class="right">
+                        <td class="bold">
+                            Pocket Quads:&nbsp;
+                        </td>
+                        <td id="logQuadNum">0
+                        </td>
+                        <td id="logQuadNumPerc">0%
+                        </td>
+                        <td id="logQuadAmt">$0
+                        </td>
+                        <td id="logQuadAmtPerc">0%
+                        </td>
+                    </tr>
+                    <!--
+                    <tr class="right">
+                        <td class="bold">
+                            Perfect Pair:&nbsp;
+                        </td>
+                        <td id="logPerfectNum">0
+                        </td>
+                        <td id="logPerfectNumPerc">0%
+                        </td>
+                        <td id="logPerfectAmt">$0
+                        </td>
+                        <td id="logPerfectAmtPerc">0%
+                        </td>
+                    </tr>
+                    -->
+                    <tr>
+                        <td colspan="5" class="center italic">
+                            <br style="height: 4px; font-size: 4px;" />
+                            Losing Hands
+                        </td>
+                    </tr>
+                    <tr class="right">
+                        <td class="bold">
+                            Player Ace:&nbsp;
+                        </td>
+                        <td id="logPaceNum">0
+                        </td>
+                        <td id="logPaceNumPerc">0%
+                        </td>
+                        <td id="logPaceAmt">$0
+                        </td>
+                        <td id="logPaceAmtPerc">0%
+                        </td>
+                    </tr>
+                    <tr class="right">
+                        <td class="bold">
+                            Killer Ace:&nbsp;
+                        </td>
+                        <td id="logKaceNum">0
+                        </td>
+                        <td id="logKaceNumPerc">0%
+                        </td>
+                        <td id="logKaceAmt">$0
+                        </td>
+                        <td id="logKaceAmtPerc">0%
+                        </td>
+                    </tr>
+                    <tr class="right">
+                        <td class="bold">
+                            Dealer Ace:&nbsp;
+                        </td>
+                        <td id="logDaceNum">0
+                        </td>
+                        <td id="logDaceNumPerc">0%
+                        </td>
+                        <td id="logDaceAmt">$0
+                        </td>
+                        <td id="logDaceAmtPerc">0%
+                        </td>
+                    </tr>           
+                    <tr class="right">
+                        <td class="bold">
+                            Dealer High Card:&nbsp;
+                        </td>
+                        <td id="logLowNum">0
+                        </td>
+                        <td id="logLowNumPerc">0%
+                        </td>
+                        <td id="logLowAmt">$0
+                        </td>
+                        <td id="logLowAmtPerc">0%
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="center italic">
+                            <br style="height: 4px; font-size: 4px;" />
+                            Pushed/Tied Hands
+                        </td>
+                    </tr>                    
+                    <tr class="right">
+                        <td class="bold">
+                            High Card Tie:&nbsp;
+                        </td>
+                        <td id="logTieNum">0
+                        </td>
+                        <td id="logTieNumPerc">0%
+                        </td>
+                        <td id="logTieAmt">$0
+                        </td>
+                        <td id="logTieAmtPerc">0%
+                        </td>
+                    </tr>
+                </table>
+                <div id="handStatsButtons" class="center" style="padding: 4px;">
+                    <a id="handStatsPrintButton" style="width: 70px;" href="javascript: void(0);" class="greenButton" onclick="javascript: window.print();">&nbsp;Print&nbsp;</a>
+                    &nbsp;
+                    <a id="handStatsCloseButton" style="width: 70px;" href="javascript: void(0);" class="redButton" onclick="javascript: handStatsButton();">&nbsp;Close&nbsp;</a>
+                </div>
+            </div>
+        </div>
+        <div id="gameHelpButtonDiv" style="position: absolute; right: 10px; top: 10px;">
+            <a id="gameHelpButton" href="javascript: void(0);" class="helpButton" onclick="javascript: gameHelpButton();" title="Game Instructions">?</a>
+        </div>
+        <div id="gameHelpDiv" class="" style="display: table; cursor: default; color: #310000; font-family: Arial; font-size: 12px; font-weight: normal; width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; background: rgba(210,210,180,0.75); visibility: hidden;">
+            <div id="gameHelpWrapDiv" class="" style="display: table-cell; vertical-align: middle;">
+                <table id="gameHelpTable" class="center table" style="vertical-align: middle; width: 450px;">
+                    <tr>
+                        <td>
+                            <img src="/logo.png" alt="Pocket Paired" style="width: 16px;" /><span style="font-size: 22px;">&nbsp;Pocket Paired</span><span style="font-size: 20px;">&trade;</span>
+                            <br />
+                            <span style="font-size: 18px; font-style: italic">Game Instructions</span>
+                        </td>
+                    </tr>
+                    <tr class="left">
+                        <td style="">
+                            safdsdfk sadfjsdfkjsadhfk sdfkjhsd fkjhsdfkjhsad kfjhsadk fjsfhdkjsdfhksdjf hksjd fksjdfhksdjf ksjdfh ksdjfhksdjfhksdj fksdj f<br />
+                            <br />
+                            safdsdfk sadfjsdfkjsadhfk sdfkjhsd fkjhsdfkjhsad kfjhsadk fjsfhdkjsdfhksdjf hksjd fksjdfhksdjf ksjdfh ksdjfhksdjfhksdj fksdj f<br />
+                            <br />
+                            safdsdfk sadfjsdfkjsadhfk sdfkjhsd fkjhsdfkjhsad kfjhsadk fjsfhdkjsdfhksdjf hksjd fksjdfhksdjf ksjdfh ksdjfhksdjfhksdj fksdj f<br />
+                            <br />
+                            safdsdfk sadfjsdfkjsadhfk sdfkjhsd fkjhsdfkjhsad kfjhsadk fjsfhdkjsdfhksdjf hksjd fksjdfhksdjf ksjdfh ksdjfhksdjfhksdj fksdj f<br />
+                            <br />
+                        </td>
+                    </tr>
+                </table>
+                <div id="gameHelpButtons" class="center" style="padding: 5px;">
+                    <a id="gameHelpPrintButton" style="width: 70px;" href="javascript: void(0);" class="greenButton" onclick="javascript: window.print();">&nbsp;Print&nbsp;</a> &nbsp; <a id="gameHelpCloseButton" style="width: 70px;" href="javascript: void(0);" class="redButton" onclick="javascript: gameHelpButton();">&nbsp;Close&nbsp;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footercopyrightDiv" class="center" title="Copyright © 2013 - Pocket Paired™ - All Rights Reserved">
+        <br />
+        <a class="footerText" href="mailto:contact@pocketpaired.com?subject=Pocket Paired">Copyright © 2013 - Pocket Paired™ - All Rights Reserved
+        <br />
+        contact@pocketpaired.com</a>
+    </div>
+    <form autocomplete="off" action="javascript: void(0);">
+        <!--<input type="text" id="betText" value="0" onblur="javascript: betValidate(ppPlayer);" />-->
+        <input type="hidden" id="betAmount" value="0" autocomplete="off" />
+        <input type="hidden" id="bonusAmount" value="0" autocomplete="off" />
+        <input type="button" id="simButton" value="Simulate" onclick="javascript: simulate(100000, ppPlayer);" />
+    </form>
+</body>
+</html>

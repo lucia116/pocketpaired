@@ -1,0 +1,44 @@
+{
+  "name": "pocketpaired",
+  "version": "1.0.0",
+  "description": "Pocket Paired",
+  "engines": {
+    "node": ">=7.7.x",
+    "npm": ">=3.10.x"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianfunk/pocketpaired.git"
+  },
+  "keywords": [
+    "pocket",
+	"paired",
+	"pair",
+	"poker",
+	"blackjack",
+	"casino",
+	"gamble"
+  ],
+  "author": "brianfunk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brianfunk/pocketpaired/issues"
+  },
+  "homepage": "https://github.com/brianfunk/pocketpaired#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.1",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
+    "file-stream-rotator": "^0.1.0",
+    "helmet": "^3.5.0",
+    "include": "^1.1.0",
+    "mkdirp": "^0.5.1",
+    "morgan": "^1.8.1"
+  }
+}
