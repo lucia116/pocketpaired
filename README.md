@@ -1,6 +1,6 @@
-# Pocket Paired
+# Pocket Paired ![Pocket Paired](/public/logo.png "Pocket Paired")
 
- Pocket Paired is a fun and exciting game that is easy to learn and offers huge payouts!
+Pocket Paired is a fun and exciting game that is easy to learn and offers huge payouts!
 
 Are you feeling lucky? Are you ready to win? Then get ready to play Pocket Paired!
 
@@ -11,6 +11,8 @@ The goal of Pocket Paired is simple: make a pair. If you get a pair: you win! If
 ## What Is A Pocket Pair?</span>
 
 Your first two cards are your pocket cards. And if your first two cards are a pair then you just got Pocket Paired! Normally a pair of cards will instantly pay 1:1 for each card in the pair. With a Pocket Pair, each card pays double - 2:1. Not only that, but you also have the option to go for Pocket Trips and even Pocket Quads.
+
+![Pocket Paired Table](/public/images/tables/table_blue.jpg "Pocket Paired Table")
 
 ## Starting Bets
 
