@@ -1,3 +1,10 @@
+[![Pocket Paired](https://img.shields.io/badge/Pocket-Paired%20%20-074009.svg?colorA=f3c625)](http://www.pocketpaired.com)
+[![GitHub](https://img.shields.io/github/release/brianfunk/pocketpaired.svg?maxAge=2592000)](https://github.com/brianfunk/pocketpaired)
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badge/)
+[![Semver](https://img.shields.io/badge/SemVer-2.0-blue.svg)](http://semver.org/spec/v2.0.0.html)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://opensource.org/licenses/MIT)
+[![LinkedIn](https://img.shields.io/badge/Linked-In-blue.svg)](https://www.linkedin.com/in/brianrandyfunk)
+
 # Pocket Paired ![Pocket Paired](/public/logo.png "Pocket Paired")
 
 Pocket Paired is a fun and exciting game that is easy to learn and offers huge payouts!
